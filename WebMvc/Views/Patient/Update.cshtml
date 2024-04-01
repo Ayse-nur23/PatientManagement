@@ -1,0 +1,56 @@
+﻿@model Entities.Concrete.Patient
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+@using (Html.BeginForm("Update", "Patient", FormMethod.Post))
+{
+<div class="form-group">
+    <br />
+    @Html.Label("Id")
+    @Html.TextBoxFor(p => p.Id, new { @class = "form-control" })
+    <br />
+    @Html.Label("TC Kimlik")
+    @Html.TextBoxFor(p => p.NationalityId, new { @class = "form-control" })
+    <br />
+    @Html.Label("Ad")
+    @Html.TextBoxFor(p => p.FirstName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Soyad")
+    @Html.TextBoxFor(p => p.LastName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Email")
+    @Html.TextBoxFor(p => p.Email, new { @class = "form-control" })
+    <br />
+    @Html.Label("Doğum Tarihi")
+    @Html.TextBoxFor(p => p.DateOfBirth, new { @class = "form-control" })
+    <br />
+    @Html.Label("Telefon Numarası")
+    @Html.TextBoxFor(p => p.PhoneNumber, new { @class = "form-control" })
+    <br />
+    @Html.Label("Adres")
+    @Html.TextBoxFor(p => p.Address, new { @class = "form-control" })
+    <br />
+    @Html.Label("Cinsiyet")
+    @Html.TextBoxFor(p => p.Gender, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kan Grupu")
+    @Html.TextBoxFor(p => p.BloodGroup, new { @class = "form-control" })
+    <br />
+    @Html.Label("Yakın Adı")
+    @Html.TextBoxFor(p => p.ConnectionName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Yakın Telefon Numarası")
+    @Html.TextBoxFor(p => p.ConnectionPhone, new { @class = "form-control" })
+    <br />
+    Kullanılan İlaçlar
+    @Html.DropDownListFor(x => x.MedicineId, (List<SelectListItem>)ViewBag.MedicineList, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.MedicineId, "", new { @class = "text-danger" })
+
+<button class="btn btn-success">
+    <i class="fas fa-edit">
+    </i>Güncelle
+</button>
+</div>
+}

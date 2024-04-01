@@ -1,0 +1,61 @@
+﻿@using Entities.DTOs
+@model List<PatientDetailDto>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<br />
+<h1>HASTALAR</h1>
+
+<table class="table table-bordered col-md-12">
+    <div>
+        <tr>
+            <th>Id</th>
+            <th>TC Kimlik </th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Email</th>
+            <th>Doğum Tarihi</th>
+            <th>Telefon Numarası</th>
+            <th>Adres</th>
+            <
+            <th>Cinsiyet</th>
+            <th>Kan Grupu</th>
+            <th>Yakın Adı</th>
+            <th>Yakın Telefon Numarası</th>
+            <th>Kullandığı İlaç</th>
+            <th>Düzenleme</th>
+
+        </tr>
+    </div>
+    @foreach (PatientDetailDto item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.NationalityId</td>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.Email</td>
+            <td>@item.DateOfBirth</td>
+            <td>@item.PhoneNumber</td>
+            <td>@item.Address </td>
+            <td>@item.Gender</td>
+            <td>@item.BloodGroup</td>
+            <td>@item.ConnectionName</td>
+            <td>@item.ConnectionPhone</td>
+            <td>@item.MedicineName</td>
+            <td>
+                <a href="/Patient/Delete/@item.Id" class="btn btn-danger btn-sm">
+                    <i class="fas fa-trash">
+                    </i>
+                    Sil
+                </a>
+                <a href="/Patient/Update/@item.Id" class="btn btn-danger btn-sm">
+                    <i class="fas fa-edit">
+                    </i>
+                    Güncelle
+                </a>
+            </td>
+        </tr>
+    }
+</table>

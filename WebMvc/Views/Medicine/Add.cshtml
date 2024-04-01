@@ -1,0 +1,22 @@
+﻿@model Entities.Concrete.Medicine
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Yeni İlaç Ekleme</h1>
+<br />
+@using (Html.BeginForm("Add", "Medicine", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("İlaç Adı")
+        @Html.TextBoxFor(m => m.MedicineName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MedicineName, "", new { @class = "text-danger" })
+        <br /><br />
+
+              <button class="btn btn-primary">
+                  <i class="fas fa-save">
+                  </i>
+                  Kaydet
+              </button>
+    </div>
+}

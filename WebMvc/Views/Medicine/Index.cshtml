@@ -1,0 +1,43 @@
+﻿@using Entities.Concrete
+@model List<Medicine>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<br />
+<h1>İLAÇLAR</h1>
+<table class="table table-bordered ">
+    <div class="d-grid gap-12 d-md-flex justify-content-md-end">
+        <a class="btn btn-primary btn-lg" type="button" href='/Medicine/Add/'>
+            Ekle
+            <i class="fas fa-plus-square">
+            </i>
+        </a>>
+    </div>
+    <br />
+    <tr >
+        <th >Id</th>
+        <th>İlaç Adı</th>
+        <th  align="center">Düzenleme</th>
+    </tr>
+    @foreach (Medicine item in Model)
+    {
+
+        <tr>
+            <td >@item.Id</td>
+            <td>@item.MedicineName</td>
+            <td  align="center">
+                <a href="/Medicine/Delete/@item.Id" class="btn btn-danger">
+                    <i class="fas fa-trash"> </i>
+                    Sil
+                </a>
+                <a href="/Medicine/Update/@item.Id" class="btn btn-info">
+                    <i class="fas fa-pencil-alt"></i>
+                    Güncelle
+                </a>
+            </td>
+
+        </tr>
+    }
+</table>

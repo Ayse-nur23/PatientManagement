@@ -1,0 +1,65 @@
+﻿@model Entities.Concrete.Patient
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3 class="text-center">Yeni Hasta Ekleme</h3>
+<hr />
+
+@using (Html.BeginForm("Add", "Patient", FormMethod.Post))
+{
+    <form class="form-group">
+        TC Kimlik
+        @Html.TextBoxFor(x => x.NationalityId, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.NationalityId, "", new { @class = "text-danger" })
+        <br /><br />
+        Ad
+        @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.FirstName, "", new { @class = "text-danger" })
+        <br /><br />
+        Soyad
+        @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.LastName, "", new { @class = "text-danger" })
+        <br /><br />
+        E-mail
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+        <br /><br />
+        Doğum Tarihi
+        @Html.TextBoxFor(x => x.DateOfBirth, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.DateOfBirth, "", new { @class = "text-danger" })
+        <br /><br />
+        Telefon Numarası
+        @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.PhoneNumber, "", new { @class = "text-danger" })
+        <br /><br />
+        Adres
+        @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Address, "", new { @class = "text-danger" })
+        <br /><br />
+        Cinsiyet
+        @Html.TextBoxFor(x => x.Gender, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Gender, "", new { @class = "text-danger" })
+        <br /><br />
+        Kan Grubu
+        @Html.TextBoxFor(x => x.BloodGroup, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.BloodGroup, "", new { @class = "text-danger" })
+        <br /><br />
+        Yakın Adı
+        @Html.TextBoxFor(x => x.ConnectionName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.ConnectionName, "", new { @class = "text-danger" })
+        <br /><br />
+        Yakın Telefon Numarası
+        @Html.TextBoxFor(x => x.ConnectionPhone, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.ConnectionPhone, "", new { @class = "text-danger" })
+        <br /><br /> 
+        Kullanılan İlaçlar
+        @Html.DropDownListFor(x => x.MedicineId, (List<SelectListItem>)ViewBag.MedicineList, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.MedicineId, "", new { @class = "text-danger" })
+        
+    <button class="btn btn-info">
+        <i class="fas fa-save">
+        </i>
+        Kaydet
+    </button>
+    </form>
+}

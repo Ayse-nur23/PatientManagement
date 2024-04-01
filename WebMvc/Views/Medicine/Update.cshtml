@@ -1,0 +1,23 @@
+﻿@model Entities.Concrete.Medicine
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+
+@using (Html.BeginForm("Update", "Medicine", FormMethod.Post))
+{
+<div class="form-group">
+    <br />
+    @Html.Label("Id")
+    @Html.TextBoxFor(m=>m.Id,new { @class="form-control"})
+    <br />
+    @Html.Label("İlaç Adı")
+    @Html.TextBoxFor(m => m.MedicineName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.MedicineName, "", new { @class = "text-danger" })
+    <br />
+
+    <button class="btn btn-success">Güncelle</button>
+</div>
+}

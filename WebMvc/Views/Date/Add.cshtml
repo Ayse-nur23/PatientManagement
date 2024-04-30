@@ -7,7 +7,6 @@
 @using (Html.BeginForm("Add", "Date", FormMethod.Post))
 {
     <div class="form-group">
-        @*<form class="form-group">*@
         TC Kimlik
         @Html.DropDownListFor(p => p.PatientId, (List<SelectListItem>)ViewBag.PatientList, "Hasta Seçiniz...", new { @class = "form-control" })
             @Html.ValidationMessageFor(p => p.PatientId, "", new { @class = "text-danger" })
@@ -20,7 +19,5 @@
                 </i>
                 Kaydet
             </button>
-        @*</form>*@
     </div>
-
 }

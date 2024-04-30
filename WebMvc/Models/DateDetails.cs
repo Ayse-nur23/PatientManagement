@@ -11,7 +11,5 @@ namespace WebMVC.Models
     {
         public List<DateDetailDto> DateDetailModel { get; set; }
         public Date DateModel { get; set; }
-
-        
     }
 }

@@ -3,11 +3,6 @@ using Entities.Concrete;
 using Entities.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using WebMVC.Models;
 
 namespace HastaTakipProgram.Controllers
 {
@@ -26,11 +21,14 @@ namespace HastaTakipProgram.Controllers
             var result = _dateService.GetDateDetails();
             if (result.Success)
             {
-                return View(result.Data);
+                return View(Tuple.Create(new Date() , result.Data));
+
+                //return View(Tuple.Create<Date, List<DateDetailDto>>(new Date(), new List<DateDetailDto>()));
+           
+              // return View(result.Data);
 
             }
             return View(result.Message);
-            return View(Tuple.Create<Date, List<DateDetailDto>>(new Date(), new List<DateDetailDto>()));
         }
 
         [HttpGet]
@@ -39,13 +37,14 @@ namespace HastaTakipProgram.Controllers
             List<SelectListItem> patientList = (from p in _patientService.GetAll().Data
                                                 select new SelectListItem
                                                 {
-                                                    Text = p.NationalityId,
+                                                    Text = p.NationalityId + "-" + p.FirstName + p.LastName,
                                                     Value = p.Id.ToString()
                                                 }).ToList();
             ViewBag.PatientList = patientList;
 
             return View();
         }
+
         [HttpPost("Add")]
         public IActionResult Add(Date date)
         {

@@ -24,7 +24,7 @@ namespace WebMVC.Controllers
             var result = _userService.Login(user);
             if (result.Success)
             {
-                return RedirectToAction("Index", "Patient");
+                return RedirectToAction("Index", "Dashboard");
             }
             return View(result.Message);
         }
